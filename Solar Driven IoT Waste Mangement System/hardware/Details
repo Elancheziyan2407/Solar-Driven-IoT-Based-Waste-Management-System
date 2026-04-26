@@ -1,0 +1,41 @@
+# Hardware Details
+
+## Components Used
+
+* ESP32 Development Board
+* GSM Module (SIM800L / SIM900)
+* Ultrasonic Sensor (HC-SR04)
+* PIR Sensor (HC-SR501)
+* Moisture Sensor
+* Servo Motor (SG90/MG90)
+* 16x2 LCD Display (I2C)
+* Current & Voltage Sensor (INA219)
+* Solar Panel (10W, 12V)
+* Lithium-Ion Battery (3.7V, 2200mAh)
+* TP4056 Charging Module
+* DC-DC Boost Converter (5V Output)
+* Jumper Wires, Connectors
+
+---
+
+## Connections
+
+* Ultrasonic Sensor → TRIG: GPIO 5, ECHO: GPIO 18
+* PIR Sensor → OUT: GPIO 19
+* Moisture Sensor → AO: GPIO 34
+* Servo Motor → Signal: GPIO 25
+* LCD (I2C) → SDA: GPIO 21, SCL: GPIO 22
+* GSM Module → TX: GPIO 17, RX: GPIO 16
+* INA219 Sensor → SDA: GPIO 21, SCL: GPIO 22
+
+---
+
+## Power Connections
+
+* Solar Panel → TP4056 Charging Module
+* TP4056 → Lithium-Ion Battery
+* Battery → DC-DC Boost Converter
+* Converter Output (5V) → ESP32 & Components
+
+---
+
