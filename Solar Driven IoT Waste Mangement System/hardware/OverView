@@ -1,0 +1,43 @@
+# System Documentation
+
+## Overview
+
+The system is a solar-powered smart waste management solution that monitors dustbin fill levels, detects user presence, and tracks battery performance. It enables automated waste handling and real-time remote monitoring using IoT.
+
+---
+
+## Architecture
+
+Solar Panel → Battery → DC-DC Converter → ESP32 → Sensors → Decision Logic → Outputs (Servo, LCD) → GSM → Cloud (ThingSpeak)
+
+---
+
+## State Machine
+
+* **IDLE:** System powered, waiting for user or data update
+* **ACTIVE:** User detected → lid opens via servo motor
+* **MONITORING:** Waste level, moisture, and battery data continuously tracked
+* **FULL:** Dustbin reaches threshold → alert/indicator triggered
+* **TRANSMIT:** Data sent to cloud via GSM module
+
+---
+
+## Working Principle
+
+1. Solar panel charges the battery through charging module
+2. ESP32 reads inputs from ultrasonic, PIR, and moisture sensors
+3. Waste level is calculated using ultrasonic sensor
+4. If user is detected → servo motor opens lid automatically
+5. Battery voltage and current are monitored using INA219
+6. Data is displayed on LCD and sent to cloud via GSM
+7. System continuously updates status and operates autonomously
+
+---
+
+## Safety Features
+
+* Battery monitoring (over-voltage / over-current protection)
+* Stable power supply using DC-DC converter
+* Reliable wireless communication via GSM
+* Automatic operation reduces human contact with waste
+* Continuous monitoring prevents overflow of dustbin
