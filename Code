@@ -1,0 +1,106 @@
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
+#include <WiFiClient.h>
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+const char* ssid = "Kamalesh";
+const char* password = "Password";
+String apiKey = "YR1OENR1LOEMVDUK";
+
+#define BATTERY_PIN A0
+
+// LCD: SDA = D2, SCL = D1 on NodeMCU
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// Battery simulation range (trim pot scales to these values)
+float fullVoltage  = 9.6;   // Pot MAX (3.3V) → shows this
+float emptyVoltage = 6.0;   // Pot MIN (0V)   → shows this
+
+unsigned long lastThingSpeak = 0;
+const unsigned long TS_INTERVAL = 20000;
+
+void setup() {
+  Serial.begin(115200);
+
+  Wire.begin(D2, D1);
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("Battery Monitor");
+  lcd.setCursor(0, 1);
+  lcd.print("Connecting WiFi");
+
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("WiFi Connected");
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("WiFi Connected");
+  delay(1500);
+  lcd.clear();
+}
+
+void loop() {
+
+  int adc = analogRead(BATTERY_PIN);
+
+  // Read pot voltage (0 to 3.3V on ESP8266 A0)
+  float adcVoltage = (adc / 1023.0) * 3.3;
+
+  // ===== MAP POT VOLTAGE → BATTERY VOLTAGE =====
+  // Pot 0.0V  → 6.0V battery
+  // Pot 3.3V  → 9.6V battery
+  float batteryVoltage = emptyVoltage +
+                         (adcVoltage / 3.3) * (fullVoltage - emptyVoltage);
+
+  // Calculate percentage
+  int percent = (batteryVoltage - emptyVoltage) * 100 /
+                (fullVoltage - emptyVoltage);
+  percent = constrain(percent, 0, 100);
+
+  // --- Serial Debug ---
+  Serial.print("ADC Raw: ");       Serial.println(adc);
+  Serial.print("Pot Voltage: ");   Serial.print(adcVoltage, 2); Serial.println(" V");
+  Serial.print("Battery Voltage: "); Serial.print(batteryVoltage, 2); Serial.println(" V");
+  Serial.print("Battery %: ");     Serial.println(percent);
+  Serial.println("------");
+
+  // --- LCD ---
+  lcd.setCursor(0, 0);
+  lcd.print("Volt: ");
+  lcd.print(batteryVoltage, 2);
+  lcd.print("V   ");
+
+  lcd.setCursor(0, 1);
+  lcd.print("Battery: ");
+  lcd.print(percent);
+  lcd.print("%   ");
+
+  // --- ThingSpeak ---
+  if (millis() - lastThingSpeak >= TS_INTERVAL) {
+    lastThingSpeak = millis();
+
+    if (WiFi.status() == WL_CONNECTED) {
+      WiFiClient client;
+      HTTPClient http;
+
+      String url = "http://api.thingspeak.com/update?api_key=" + apiKey +
+                   "&field1=" + String(percent) +
+                   "&field2=" + String(batteryVoltage);
+
+      http.begin(client, url);
+      int httpCode = http.GET();
+      Serial.print("ThingSpeak HTTP Code: ");
+      Serial.println(httpCode);
+      http.end();
+    }
+  }
+
+  delay(1000);
+}
