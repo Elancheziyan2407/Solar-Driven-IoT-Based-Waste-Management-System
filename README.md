@@ -54,11 +54,6 @@ This project aims to reduce manual intervention, optimize waste collection route
 5. Data is sent to ThingSpeak via GSM/WiFi
 6. Users can monitor system remotely
 
----
-
-## 🔌 Circuit Diagram
-
-📷 Refer to: `docs/circuit_diagram.png`
 
 ---
 
@@ -96,57 +91,6 @@ Testing modules included:
 * GSM communication testing
 * Battery monitoring validation
 * Servo motor response testing
-
-Refer: `tests/`
-
----
-
-## 📊 Sample Data
-
-Sample datasets available in:
-
-```
-data/
-```
-
----
-
-## 📷 Project Images
-
-| Prototype                          | Setup                      | Results                              |
-| ---------------------------------- | -------------------------- | ------------------------------------ |
-| ![Prototype](images/prototype.jpg) | ![Setup](images/setup.jpg) | ![Results](images/results_graph.png) |
-
----
-
-## 🚀 How to Run the Project
-
-### 1. Clone the Repository
-
-```
-git clone https://github.com/your-username/solar-iot-smart-waste-management-esp32.git
-cd solar-iot-smart-waste-management-esp32
-```
-
-### 2. Upload Firmware
-
-* Open `firmware/main/main.ino` in Arduino IDE
-* Install required libraries:
-
-  * WiFi
-  * ThingSpeak
-  * Servo
-  * LiquidCrystal
-* Select ESP32 board
-* Upload code
-
-### 3. Configure Settings
-
-Update in `config.h`:
-
-* WiFi credentials
-* ThingSpeak API key
-* GSM settings
 
 ---
 
