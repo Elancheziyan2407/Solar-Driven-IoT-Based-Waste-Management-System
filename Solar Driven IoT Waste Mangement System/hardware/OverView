@@ -36,7 +36,6 @@ Solar Panel → Battery → DC-DC Converter → ESP32 → Sensors → Decision L
 
 ## Safety Features
 
-* Battery monitoring (over-voltage / over-current protection)
 * Stable power supply using DC-DC converter
 * Reliable wireless communication via GSM
 * Automatic operation reduces human contact with waste
