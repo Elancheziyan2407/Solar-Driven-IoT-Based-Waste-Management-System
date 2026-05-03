@@ -1,0 +1,17 @@
+[INFO] System Started
+[INFO] Sensors Initialized Successfully
+
+[DATA] Waste Level: 35% | Moisture: LOW
+[INFO] Data Sent to Cloud
+
+[DATA] Waste Level: 68% | Moisture: HIGH
+[INFO] Wet Waste Detected
+
+[DATA] Waste Level: 92%
+[WARNING] Bin Almost Full
+
+[DATA] Waste Level: 100%
+[ALERT] Dustbin Overfilled
+[ACTION] Notification Sent via GSM
+
+[INFO] System Monitoring Continues
