@@ -1,0 +1,63 @@
+# Test Cases
+
+## Test Case 1: Dustbin Empty (Normal Condition)
+
+Input: Waste Level = 10%
+Expected: NORMAL state, lid closed, no alert
+Result: PASS
+
+---
+
+## Test Case 2: User Detection (Lid Operation)
+
+Input: PIR detects user
+Expected: Servo motor opens lid automatically
+Result: PASS
+
+---
+
+## Test Case 3: Dustbin Full Condition
+
+Input: Waste Level ≥ 90%
+Expected: FULL state, alert triggered, data sent to cloud
+Result: PASS
+
+---
+
+## Test Case 4: Moisture Detection
+
+Input: Wet waste detected
+Expected: Moisture status updated and sent to cloud
+Result: PASS
+
+---
+
+## Test Case 5: Battery Monitoring
+
+Input: Battery Voltage & Current readings
+Expected: Values displayed on LCD and uploaded to cloud
+Result: PASS
+
+---
+
+## Test Case 6: Solar Charging Condition
+
+Input: Sunlight available
+Expected: Battery charging via solar panel
+Result: PASS
+
+---
+
+## Test Case 7: Communication Check
+
+Input: System active with GSM module
+Expected: Data successfully transmitted to cloud (ThingSpeak)
+Result: PASS
+
+---
+
+## Test Case 8: No User / Idle State
+
+Input: No motion detected
+Expected: Lid remains closed, system continues monitoring
+Result: PASS

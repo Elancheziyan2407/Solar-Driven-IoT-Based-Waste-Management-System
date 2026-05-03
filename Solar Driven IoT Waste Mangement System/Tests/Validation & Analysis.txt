@@ -1,0 +1,132 @@
+# Test Cases (Validation & Analysis)
+
+## Test Case 1: Sensor Accuracy Testing
+
+**Input:** Known distances (10cm, 20cm, 30cm)
+**Observed Output:**
+
+* 10 cm → 10.5 cm
+* 20 cm → 19.6 cm
+* 30 cm → 29.2 cm
+
+**Error Calculation:**
+Average Error ≈ ±1.5 cm
+
+**Expected:** Error within ±2 cm
+**Result:** PASS
+
+---
+
+## Test Case 2: GSM Communication Testing
+
+**Input:** Data transmission triggered every 15 seconds
+
+**Observed Output:**
+
+* Average transmission delay: ~3–5 seconds
+* Success rate: 9/10 transmissions
+
+**Expected:** Data reaches cloud without major delay
+**Result:** PASS
+
+---
+
+## Test Case 3: Battery Monitoring Validation
+
+**Input:** Battery voltage range: 3.5V – 4.2V
+
+**Observed Output:**
+
+* Measured Voltage: 3.72V (actual: 3.70V)
+* Measured Current: 0.48A (actual: 0.50A)
+
+**Error:**
+
+* Voltage Error ≈ ±0.02V
+* Current Error ≈ ±0.02A
+
+**Expected:** Accurate within tolerance
+**Result:** PASS
+
+---
+
+## Test Case 4: Servo Motor Response Testing
+
+**Input:** PIR detects user
+
+**Observed Output:**
+
+* Response time: ~0.8 seconds
+* Lid opening angle: ~90°
+
+**Expected:** Smooth operation within 1 second
+**Result:** PASS
+
+---
+
+# Failure / Edge Test Cases
+
+## Test Case 5: Sensor Failure Condition
+
+**Input:** Ultrasonic sensor disconnected
+
+**Observed Output:**
+
+* No valid readings
+* System enters safe/default state
+
+**Expected:** Error handled without crash
+**Result:** PASS
+
+---
+
+## Test Case 6: Low Battery Condition
+
+**Input:** Battery voltage < 3.3V
+
+**Observed Output:**
+
+* System performance reduced
+* LCD shows low voltage warning
+
+**Expected:** Safe operation with warning
+**Result:** PASS
+
+---
+
+## Test Case 7: GSM Network Failure
+
+**Input:** No network signal
+
+**Observed Output:**
+
+* Data transmission failed
+* System retries periodically
+
+**Expected:** No system crash, retry mechanism
+**Result:** PASS
+
+---
+
+## Test Case 8: Continuous Usage Condition
+
+**Input:** Repeated lid operations (20 cycles)
+
+**Observed Output:**
+
+* Servo operated without failure
+* No overheating observed
+
+**Expected:** Stable operation
+**Result:** PASS
+
+---
+
+# Summary
+
+* Sensor accuracy within acceptable range
+* Reliable GSM communication achieved
+* Stable solar-powered operation
+* System handles failure conditions safely
+
+Overall system performance: **STABLE & RELIABLE**

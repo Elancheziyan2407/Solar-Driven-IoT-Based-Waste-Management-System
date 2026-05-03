@@ -1,0 +1,18 @@
+# Fault Injection Testing
+
+## Test Cases
+
+### Overvoltage Condition
+- Injected Voltage: 13V
+- Expected: Relay OFF
+- Result: PASS
+
+### Overtemperature Condition
+- Injected Temp: 55°C
+- Expected: Buzzer ON, Relay OFF
+- Result: PASS
+
+### Sensor Failure Simulation
+- Disconnected sensor
+- Expected: Error detection
+- Result: Partial detection (improvement needed)
