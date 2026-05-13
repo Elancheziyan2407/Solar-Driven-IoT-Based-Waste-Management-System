@@ -1,0 +1,5 @@
+| Defect ID | Description          | Severity | Status |
+| --------- | -------------------- | -------- | ------ |
+| DEF_01    | PIR sensor delay     | Medium   | Fixed  |
+| DEF_02    | Cloud update delay   | High     | Fixed  |
+| DEF_03    | Servo response issue | Medium   | Closed |
