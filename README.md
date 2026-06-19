@@ -1,6 +1,6 @@
-  # 🌞 Solar-Driven IoT-Based Waste Management System (ESP32)
+  #  Solar-Driven IoT-Based Waste Management System (ESP32)
 
-## 📌 Overview
+##  Overview
 
 The **Solar-Driven IoT-Based Waste Management System** is a smart solution designed to improve waste collection efficiency using renewable energy and real-time monitoring. The system uses an **ESP32 microcontroller**, sensors, and cloud integration to monitor dustbin status, battery performance, and environmental conditions.
 
@@ -8,7 +8,7 @@ This project aims to reduce manual intervention, optimize waste collection route
 
 ---
 
-## 🎯 Objectives
+##  Objectives
 
 * Enable real-time monitoring of waste levels
 * Automate dustbin lid operation
@@ -18,19 +18,19 @@ This project aims to reduce manual intervention, optimize waste collection route
 
 ---
 
-## ⚙️ System Features
+##  System Features
 
-* 📡 IoT-based real-time monitoring using ThingSpeak
-* 🌞 Solar-powered system with lithium-ion battery backup
-* 🗑️ Automatic lid opening using servo motor
-* 📶 GSM module for communication
-* 📊 Waste level detection using ultrasonic sensor
-* 💧 Moisture detection for wet/dry waste indication
-* 🔋 Battery monitoring (voltage & current display on LCD)
+*  IoT-based real-time monitoring using ThingSpeak
+*  Solar-powered system with lithium-ion battery backup
+*  Automatic lid opening using servo motor
+*  GSM module for communication
+*  Waste level detection using ultrasonic sensor
+*  Moisture detection for wet/dry waste indication
+*  Battery monitoring (voltage & current display on LCD)
 
 ---
 
-## 🧩 Components Used
+##  Components Used
 
 * ESP32 Microcontroller
 * GSM Module
@@ -45,7 +45,7 @@ This project aims to reduce manual intervention, optimize waste collection route
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 1. Sensors collect data (waste level, moisture)
 2. ESP32 processes the data
@@ -57,7 +57,7 @@ This project aims to reduce manual intervention, optimize waste collection route
 
 ---
 
-## 🔄 Workflow
+##  Workflow
 
 1. Ultrasonic sensor measures waste level
 2. Moisture sensor detects wet/dry waste
@@ -69,7 +69,7 @@ This project aims to reduce manual intervention, optimize waste collection route
 
 ---
 
-## ☁️ Cloud Integration (ThingSpeak)
+##  Cloud Integration (ThingSpeak)
 
 * Platform: ThingSpeak
 * Data Uploaded:
@@ -79,11 +79,11 @@ This project aims to reduce manual intervention, optimize waste collection route
   * Battery Voltage
   * Battery Current
 
-📊 Graphs can be viewed in real-time via ThingSpeak dashboard.
+ Graphs can be viewed in real-time via ThingSpeak dashboard.
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 Testing modules included:
 
@@ -94,7 +94,7 @@ Testing modules included:
 
 ---
 
-## 📈 Results
+##  Results
 
 * Real-time monitoring achieved
 * Efficient waste level detection
@@ -103,7 +103,7 @@ Testing modules included:
 
 ---
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 * Mobile application for monitoring
 * AI-based waste prediction
